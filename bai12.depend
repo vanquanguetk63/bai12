@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1628433365 source:c:\users\vanquang\documents\bai12\bai12\main.cpp
+	<iostream>
+	<stdlib.h>
+	<string>
+	"ListCar.cpp"
+
+1628426169 c:\users\vanquang\documents\bai12\bai12\car.h
+	"ListCar.h"
+
+1628349113 c:\users\vanquang\documents\bai12\bai12\list.h
+	<iostream>
+	"ListNode.h"
+
+1628349121 c:\users\vanquang\documents\bai12\bai12\listnode.h
+
+1628433411 c:\users\vanquang\documents\bai12\bai12\listcar.cpp
+	"ListCar.h"
+	"Car.cpp"
+	"MyLibrary.h"
+	<sstream>
+	<iomanip>
+
+1628432510 c:\users\vanquang\documents\bai12\bai12\listcar.h
+	"Car.h"
+
+1628433256 c:\users\vanquang\documents\bai12\bai12\car.cpp
+	"Car.h"
+
+1628398684 c:\users\vanquang\documents\bai12\bai12\mylibrary.h
+	<fstream>
+
