@@ -13,6 +13,7 @@ public:
 	Customer* searchById(int);
 	void importFromFile();
 	void exportToFile();
+	void preOrderToWrite(Customer* temp,fstream &file);
 
 private:
 	Customer *rootPtr;

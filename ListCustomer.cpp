@@ -9,7 +9,46 @@ ListCustomer::~ListCustomer() {
 }
 
 void ListCustomer::importFromFile() {
+    fstream fileListCustomer;
+    fileListCustomer.open("ListCustomer.txt", ios::in);
+    if (fileListCustomer.is_open()) {
+        int i = 0;
+        int idCard;
+        std::string firstName;
+        std::string LastName;
+        int sex;
+        if (isEmptyFile(fileListCustomer))return;
+        else {
+            std::string line;
+            while(std::getline(fileListCustomer, line)){
+                std::istringstream inLine(line);
+                inLine >> idCard;
+                inLine >> firstName;
+                inLine >> LastName;
+                inLine >> sex;
+                Customer customer(idCard, firstName, LastName, sex );
+                this->insertNewNode(customer);
+            }
+        }
+    }
+    else cout << "Can't Open File" << endl;
+    fileListCustomer.close();
+}
+void ListCustomer::preOrderToWrite(Customer* temp, fstream &file) {
+    if(temp != 0)
+	{
+		preOrderToWrite(temp->leftCustomer, file);
+        file << temp->getIdCard() << " " << temp->getFirstName() << " " << temp->getLastName() << " " << temp->getSex() << endl;
+		preOrderToWrite(temp->rightCustomer, file);
+	}
+}
 
+void ListCustomer::exportToFile() {
+    fstream fileListCustomer;
+	fileListCustomer.open("ListCustomer.txt",ios::out);
+    preOrderToWrite(rootPtr, fileListCustomer );
+
+	fileListCustomer.close();
 }
 
 void ListCustomer::insertNewNode(Customer customer) {
@@ -44,6 +83,8 @@ void ListCustomer::preOrderPrintUtility(Customer* temp) {
 		preOrderPrintUtility(temp->rightCustomer);
 	}
 }
+
+
 
 void ListCustomer::preOrderPrint() {
 	preOrderPrintUtility(rootPtr);

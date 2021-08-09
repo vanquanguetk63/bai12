@@ -57,6 +57,7 @@
 		<Unit filename="ListCustomer.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="ListCustomer.txt" />
 		<Unit filename="ListTrip.cpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

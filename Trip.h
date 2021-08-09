@@ -1,11 +1,11 @@
-#include "Ticket.h"
 #include "vector"
+#include "Ticket.h"
 #ifndef TRIP_H_INCLUDED
 #define TRIP_H_INCLUDED
 
 class Trip
 {
-friend class Ticket;
+friend class ListTrip;
 public:
     Trip();
 	Trip(int id, std::string date, std::string hour, std::string province, int carId);
@@ -41,6 +41,9 @@ public:
     this->status = status;}
 	void addTicket(Ticket);
 	bool isHaveBookTicket(int idCard);
+	std::vector<Ticket> getListTickets() {
+	return this->tickets;}
+
 
 private:
 	int id;

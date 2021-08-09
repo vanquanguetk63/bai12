@@ -28,6 +28,10 @@ public:
         this->seats = seats;
     }
 
+    int getSeats() {
+        return this->seats;
+    }
+
 private:
 	int carId;
 	std::string production;

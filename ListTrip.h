@@ -1,12 +1,11 @@
 #include "Trip.h"
+#include "ListCustomer.h"
 #include <vector>
 #ifndef LISTTRIP_H_INCLUDED
 #define LISTTRIP_H_INCLUDED
 
 class ListTrip
 {
-friend class Trip;
-
 public:
 	ListTrip();
 	~ListTrip();
@@ -19,6 +18,9 @@ public:
 	int searchById(int id);
 	void editTrip(int idTrip,std::string dayTrip,std::string hourTrip,int status);
 	Trip& getTripById(int);
+	void printDetail(int idTrip, ListCustomer);
+	void printDetailByDayAndProvince(std::string  dateType, std::string  province, ListCar);
+
 
 private:
     std::vector<Trip> trips;

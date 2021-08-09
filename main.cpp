@@ -17,6 +17,8 @@ int main()
     ListTrip listTrip;
     listTrip.readFromFile();
     ListCustomer listCustomer;
+    listCustomer.importFromFile();
+
     while(true) {
         if (currentMenu == "Menu") {
             system ("cls");
@@ -25,8 +27,7 @@ int main()
             cout << "2. Cap nhat chuyen xe" << endl;
             cout << "3. Dat ve" << endl;
             cout << "4. Danh sach ve theo chuyen xe" << endl;
-            cout << "5. Cac chuyen xe trong ngay" << endl;
-            cout << "6. Thong ke xe" << endl;
+            cout << "5. Cac chuyen xe  trong ngay" << endl;
             cout << "------------------------------" << endl;
             cout << "Nhap lua chon cua ban: " << endl;
             cin >> option;
@@ -36,6 +37,10 @@ int main()
             option = 2;
         } else if (currentMenu == "MenuTicket") {
             option = 3;
+        } else if (currentMenu == "MenuDetailTrip") {
+            option = 4;
+        } else if (currentMenu == "MenuDetailDay") {
+            option = 5;
         }
 
         if (option == 1) {
@@ -50,6 +55,7 @@ int main()
                 cout << "3. Cap nhat xe" << endl;
                 cout << "------------------------------" << endl;
                 cout << "Nhap lua chon cua ban: " << endl;
+                listTrip.print();
                 cin >> option;
                 if (option == 0) {
                     currentMenu = "Menu";
@@ -221,6 +227,7 @@ int main()
                         } else {
                             system ("cls");
                             listTrip.insertNewTrips(trip);
+                            listTrip.exportToFile();
                             cout << "Them chuyen xe thanh cong" << endl;
                             cout << "------------------------------" << endl;
                         }
@@ -288,7 +295,7 @@ int main()
             bool inOption = true;
             while (inOption) {
                 system ("cls");
-                listCar.print();
+                listTrip.print();
                 cout << "Dat xe" << endl;
                 cout << "Nhap ma xe can dat" << endl;
                 cout << "------------------------------" << endl;
@@ -298,6 +305,7 @@ int main()
                 bool isHaveCar = indexTrip == -1;
                 while(isHaveCar) {
                     cout << "Nhap lai " << endl;
+                    fflush(stdin);
                     cin >> option;
                     indexTrip = listTrip.searchById(option);
                     isHaveCar = indexTrip == -1;
@@ -324,6 +332,7 @@ int main()
                 if (searchCustomer == NULL) {
                     Customer newCus(idCard, firstName, lastName, sex);
                     listCustomer.insertNewNode(newCus);
+                    listCustomer.exportToFile();
                 }
                 Trip& trip = listTrip.getTripById(indexTrip);
                 bool isBookTicket = trip.isHaveBookTicket(idCard);
@@ -332,8 +341,10 @@ int main()
                 } else {
                     Ticket newTicket(option, idCard);
                     trip.addTicket(newTicket);
+                    listTrip.exportToFile();
                     cout << "Dat ve thanh cong" << endl;
                 }
+
                 cout << "------------------------------" << endl;
                 cout << "1. Tiep tuc nhap" << endl;
                 cout << "0. Quay lai" << endl;
@@ -341,11 +352,78 @@ int main()
                 cin >> option;
                 if (option == 0) {
                     inOption = false;
+                    currentMenu="Menu";
                     continue;
                 }
 
             }
         }
+        else if (option == 4) {
+            currentMenu = "MenuDetailTrip";
+            bool inOption = true;
+            while(inOption) {
+                system ("cls");
+                listTrip.print();
+                cout << "------------------------------" << endl;
+                cout << "Chon ma  chuyen xe " << endl;
+                cin >> option;
+                int trip = listTrip.searchById(option);
+                bool isWrong = trip == -1;
+                while (isWrong) {
+                    cout << "Nhap lai ";
+                    fflush(stdin);
+                    cin >> option;
+                    trip = listTrip.searchById(option);
+                    isWrong = trip == -1;
+                }
+                system ("cls");
+                listTrip.printDetail(option, listCustomer);
+
+                fflush(stdin);
+                cout << "1. Tiep tuc nhap" << endl;
+                cout << "0. Quay lai" << endl;
+                cout << "Nhap vao hanh dong tiep theo: ";
+                cin >> option;
+                if (option == 0) {
+                    currentMenu="Menu";
+                    inOption = false;
+                }
+            }
+        } else if (option == 5) {
+            currentMenu = "MenuDetailDay";
+            bool inOption = true;
+            while(inOption) {
+                system ("cls");
+                listTrip.print();
+                cout << "Chuyen xe trong ngay";
+                cout << "------------------------------" << endl;
+                cout << "Nhap vao ngay " << endl;
+                string dateType;
+                string province;
+
+                fflush(stdin);
+
+                cin >> dateType;
+                fflush(stdin);
+                cout << "Nhap vao tinh " << endl;
+                fflush(stdin);
+                cin >> province;
+
+                system ("cls");
+
+                fflush(stdin);
+                listTrip.printDetailByDayAndProvince(dateType, province, listCar);
+                cout << "1. Tiep tuc nhap" << endl;
+                cout << "0. Quay lai" << endl;
+                cout << "Nhap vao hanh dong tiep theo: ";
+                cin >> option;
+                if (option == 0) {
+                    currentMenu="Menu";
+                    inOption = false;
+                }
+            }
+        }
+
     }
 
 
