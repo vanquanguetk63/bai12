@@ -57,6 +57,7 @@
 		<Unit filename="ListTrip.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="ListTrip.txt" />
 		<Unit filename="MyLibrary.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

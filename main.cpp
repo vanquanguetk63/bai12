@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string>
 #include "ListCar.cpp"
+#include "ListTrip.cpp"
 using namespace std;
 
 int main()
@@ -12,6 +13,8 @@ int main()
     std::string currentMenu = "Menu";
     ListCar listCar;
     listCar.readFromFile();
+    ListTrip listTrip;
+    listTrip.readFromFile();
     while(true) {
         if (currentMenu == "Menu") {
             system ("cls");
@@ -176,7 +179,102 @@ int main()
                 if (option == 0) {
                     currentMenu = "Menu";
                     inOption = false;
+                    continue;
                 } else if (option == 1) {
+                    system ("cls");
+                    bool isPress = true;
+                    while (isPress) {
+                        system ("cls");
+                        listTrip.print();
+                        int idTrip;
+                        string dayTrip;
+                        string hourTrip;
+                        string province;
+                        int carId;
+
+                        cout << "Them chuyen xe" << endl;
+                        cout << "------------------------------" << endl;
+                        cout << "Nhap vao thong tin chuyen xe: " << endl;
+                        cout << "Ma chuyen: ";
+                        cin >> idTrip;
+                        cout << "Ngay khoi hanhg(dd/mm/yyy) : ";
+                        fflush(stdin);
+                        cin >> dayTrip;
+                        cout << "Gio khoi hanh(hh:mm) : ";
+                        fflush(stdin);
+                        cin >> hourTrip;
+                        cout << "Tinh den(Viet lien khong dau cach) : ";
+                        fflush(stdin);
+                        cin >> province;
+                        cout << "Ma xe: ";
+                        fflush(stdin);
+                        cin >> carId;
+                        Trip trip(idTrip, dayTrip, hourTrip, province, carId);
+                        if (listTrip.isExist(trip)) {
+                            system ("cls");
+                            cout << "Chuyen xe da ton tai" << endl;
+                            cout << "------------------------------" << endl;
+                        } else {
+                            system ("cls");
+                            listTrip.insertNewTrips(trip);
+                            cout << "Them chuyen xe thanh cong" << endl;
+                            cout << "------------------------------" << endl;
+                        }
+                        cout << "1. Tiep tuc nhap" << endl;
+                        cout << "0. Quay lai" << endl;
+                        cout << "Nhap vao hanh dong tiep theo: ";
+                        cin >> option;
+                        if (option == 0) {
+                            isPress = false;
+                        }
+
+                    }
+                } else if (option == 2) {
+                    system ("cls");
+                    bool isPress = true;
+                    while (isPress) {
+                        system ("cls");
+                        listTrip.print();
+                        int idTrip;
+                        string dayTrip;
+                        string hourTrip;
+                        int status;
+
+                        cout << "Cap nhat chuyen xe" << endl;
+                        cout << "------------------------------" << endl;
+                        cout << "Nhap vao ma chuyen xe: " << endl;
+                        cin >> idTrip;
+                        if (listTrip.searchById(idTrip) == -1) {
+                            system("cls");
+                            cout << "Ma chuyen xe khong ton tai" << endl;
+                            cout << "------------------------------" << endl;
+                        } else {
+                            system("cls");
+                            cout << "Nhap thong tin xe" << endl;
+                            cout << "------------------------------" << endl;
+                            cout << "Ma chuyen: ";
+                            cout << "Ngay khoi hanh(dd/mm/yyy) : ";
+                            fflush(stdin);
+                            cin >> dayTrip;
+                            cout << "Gio khoi hanh(hh:mm) : ";
+                            fflush(stdin);
+                            cin >> hourTrip;
+                            fflush(stdin);
+                            cout << "Trang thai: ";
+                            cin >> status;
+                            listTrip.editTrip(idTrip, dayTrip, hourTrip, status);
+                            cout << "Thanh cong" << endl;
+                            cout << "------------------------------" << endl;
+
+                        }
+                        cout << "1. Tiep tuc nhap" << endl;
+                        cout << "0. Quay lai" << endl;
+                        cout << "Nhap vao hanh dong tiep theo: ";
+                        cin >> option;
+                        if (option == 0) {
+                            isPress = false;
+                        }
+                    }
                 }
 
             }

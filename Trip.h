@@ -1,16 +1,51 @@
 #include "Ticket.h"
+#include "vector"
 #ifndef TRIP_H_INCLUDED
 #define TRIP_H_INCLUDED
 
 class Trip
 {
+friend class Ticket;
 public:
-	Trip(std::string id, int status, std::string date, std::string hour, std::string province, int carId);
+    Trip();
+	Trip(int id, std::string date, std::string hour, std::string province, int carId);
     ~Trip();
     void insetNewTrip(Trip trip);
+    int getId() {
+        return this->id;
+    }
+    std::string getDate() {
+        return this->date;
+    }
+    std::string getHour() {
+        return this->hour;
+    }
+    std::string getProvince() {
+        return this->province;
+    }
+    int getCarId() {
+        return this->carId;
+    }
+    int getNumberTickets() {
+        //return this->tickets.size();
+        return 0;
+    }
+    int getStatus() {
+        return this->status;
+    }
+
+    void setDate(std::string date) {
+    this->date = date;}
+    void setHour(std::string hour) {
+    this->hour = hour;}
+    void setStatus(int status){
+    this->status = status;}
+
+
+
 
 private:
-	std::string id;
+	int id;
 	int status;
 	std::string date;
 	std::string hour;

@@ -1,11 +1,13 @@
-#ifndef TICKET_H_INCLUDED
-#define TICKET_H_INCLUDED
+#ifndef TICKET_H_
+#define TICKET_H_
 
 class Ticket
 {
 public:
 	Ticket();
 	~Ticket();
+
+	void print();
 
 private:
 	int seatId;
@@ -14,4 +16,4 @@ private:
 };
 
 
-#endif // TICKET_H_INCLUDED
+#endif // TICKET_H_
