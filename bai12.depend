@@ -1,9 +1,11 @@
 # depslib dependency file v1.0
-1628433365 source:c:\users\vanquang\documents\bai12\bai12\main.cpp
+1628484761 source:c:\users\vanquang\documents\bai12\bai12\main.cpp
 	<iostream>
 	<stdlib.h>
 	<string>
 	"ListCar.cpp"
+	"ListTrip.cpp"
+	"ListCustomer.cpp"
 
 1628426169 c:\users\vanquang\documents\bai12\bai12\car.h
 	"ListCar.h"
@@ -14,7 +16,7 @@
 
 1628349121 c:\users\vanquang\documents\bai12\bai12\listnode.h
 
-1628433411 c:\users\vanquang\documents\bai12\bai12\listcar.cpp
+1628484761 c:\users\vanquang\documents\bai12\bai12\listcar.cpp
 	"ListCar.h"
 	"Car.cpp"
 	"MyLibrary.h"
@@ -89,5 +91,39 @@
 	"Customer.h"
 
 1628504477 c:\users\admin\documents\github\bai12\customer.cpp
+	"Customer.h"
+
+1628484761 c:\users\vanquang\documents\bai12\bai12\listtrip.cpp
+	"ListTrip.h"
+	"Trip.cpp"
+	<vector>
+
+1628484761 c:\users\vanquang\documents\bai12\bai12\listtrip.h
+	"Trip.h"
+	<vector>
+
+1628484761 c:\users\vanquang\documents\bai12\bai12\trip.h
+	"Ticket.h"
+	"vector"
+
+1628484761 c:\users\vanquang\documents\bai12\bai12\ticket.h
+
+1628484761 c:\users\vanquang\documents\bai12\bai12\trip.cpp
+	"Trip.h"
+	"Ticket.cpp"
+
+1628484761 c:\users\vanquang\documents\bai12\bai12\ticket.cpp
+	"Ticket.h"
+
+1628484761 c:\users\vanquang\documents\bai12\bai12\listcustomer.cpp
+	"ListCustomer.h"
+	"Customer.cpp"
+
+1628484761 c:\users\vanquang\documents\bai12\bai12\listcustomer.h
+	"Customer.h"
+
+1628485236 c:\users\vanquang\documents\bai12\bai12\customer.h
+
+1628484760 c:\users\vanquang\documents\bai12\bai12\customer.cpp
 	"Customer.h"
 
