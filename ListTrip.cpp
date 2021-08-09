@@ -115,6 +115,11 @@ void ListTrip::editTrip(int idTrip,std::string dayTrip,std::string hourTrip,int 
     this->exportToFile();
 }
 
+Trip& ListTrip::getTripById(int i) {
+    return this->trips.at(i);
+}
+
+
 
 
 

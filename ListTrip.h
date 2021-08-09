@@ -18,6 +18,7 @@ public:
 	void exportToFile();
 	int searchById(int id);
 	void editTrip(int idTrip,std::string dayTrip,std::string hourTrip,int status);
+	Trip& getTripById(int);
 
 private:
     std::vector<Trip> trips;

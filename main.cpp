@@ -3,6 +3,7 @@
 #include <string>
 #include "ListCar.cpp"
 #include "ListTrip.cpp"
+#include "ListCustomer.cpp"
 using namespace std;
 
 int main()
@@ -15,6 +16,7 @@ int main()
     listCar.readFromFile();
     ListTrip listTrip;
     listTrip.readFromFile();
+    ListCustomer listCustomer;
     while(true) {
         if (currentMenu == "Menu") {
             system ("cls");
@@ -32,6 +34,8 @@ int main()
             option = 1;
         } else if (currentMenu == "MenuTrip") {
             option = 2;
+        } else if (currentMenu == "MenuTicket") {
+            option = 3;
         }
 
         if (option == 1) {
@@ -275,6 +279,69 @@ int main()
                             isPress = false;
                         }
                     }
+                }
+
+            }
+        }
+        else if (option == 3) {
+            currentMenu = "MenuCar";
+            bool inOption = true;
+            while (inOption) {
+                system ("cls");
+                listCar.print();
+                cout << "Dat xe" << endl;
+                cout << "Nhap ma xe can dat" << endl;
+                cout << "------------------------------" << endl;
+                cout << "Nhap lua chon cua ban: " << endl;
+                cin >> option;
+                int indexTrip = listTrip.searchById(option);
+                bool isHaveCar = indexTrip == -1;
+                while(isHaveCar) {
+                    cout << "Nhap lai " << endl;
+                    cin >> option;
+                    indexTrip = listTrip.searchById(option);
+                    isHaveCar = indexTrip == -1;
+                }
+                int idCard;
+                string firstName;
+                string lastName;
+                int sex;
+                cout << "------------------------------" << endl;
+                cout << "Nhap CMND : " << endl;
+                cin >> idCard;
+                cout << "Nhap first name" << endl;
+                fflush(stdin);
+                cin >> firstName;
+                fflush(stdin);
+                cout << "Nhap last name" << endl;
+                cin >> lastName;
+                fflush(stdin);
+                cout << "Nhap gioi tinh" << endl;
+                cin >> sex;
+                fflush(stdin);
+
+                Customer* searchCustomer = listCustomer.searchById(idCard);
+                if (searchCustomer == NULL) {
+                    Customer newCus(idCard, firstName, lastName, sex);
+                    listCustomer.insertNewNode(newCus);
+                }
+                Trip& trip = listTrip.getTripById(indexTrip);
+                bool isBookTicket = trip.isHaveBookTicket(idCard);
+                if (isBookTicket) {
+                    cout << "Ban da dat ve, nen ko the dat nua." << endl;
+                } else {
+                    Ticket newTicket(option, idCard);
+                    trip.addTicket(newTicket);
+                    cout << "Dat ve thanh cong" << endl;
+                }
+                cout << "------------------------------" << endl;
+                cout << "1. Tiep tuc nhap" << endl;
+                cout << "0. Quay lai" << endl;
+                cout << "Nhap vao hanh dong tiep theo: ";
+                cin >> option;
+                if (option == 0) {
+                    inOption = false;
+                    continue;
                 }
 
             }

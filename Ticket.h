@@ -4,13 +4,13 @@
 class Ticket
 {
 public:
-	Ticket();
+    Ticket();
+	Ticket(int idTrip, int idCard);
 	~Ticket();
 
-	void print();
-
+	int getIdCard() {
+	return idCard;}
 private:
-	int seatId;
 	int idTrip;
 	int idCard;
 };

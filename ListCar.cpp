@@ -24,7 +24,6 @@ bool ListCar::isEmpty()
 
 void ListCar::insertNewCar(Car car)
 {
-    cout << "zp";
 	if(isEmpty())
 	{
 		Car* newCar = new Car(car.carId, car.production, car.model, car.seats);

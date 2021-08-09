@@ -27,8 +27,7 @@ public:
         return this->carId;
     }
     int getNumberTickets() {
-        //return this->tickets.size();
-        return 0;
+        return this->tickets.size();
     }
     int getStatus() {
         return this->status;
@@ -40,9 +39,8 @@ public:
     this->hour = hour;}
     void setStatus(int status){
     this->status = status;}
-
-
-
+	void addTicket(Ticket);
+	bool isHaveBookTicket(int idCard);
 
 private:
 	int id;

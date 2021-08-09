@@ -17,4 +17,22 @@ Trip::Trip(int id, std::string date, std::string hour,std::string province, int 
 Trip::~Trip() {
 }
 
+void Trip::addTicket(Ticket ticket) {
+    this->tickets.push_back(ticket);
+}
+
+bool Trip::isHaveBookTicket(int idCard) {
+    if (this->tickets.size() == 0) {
+        return false;
+    }
+    int index = this->tickets.size();
+    for (int i = 0; i < index; i++) {
+        if (this->tickets.at(i).getIdCard() == idCard) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 

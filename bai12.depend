@@ -30,12 +30,13 @@
 1628398684 c:\users\vanquang\documents\bai12\bai12\mylibrary.h
 	<fstream>
 
-1628499833 source:c:\users\admin\documents\github\bai12\main.cpp
+1628504626 source:c:\users\admin\documents\github\bai12\main.cpp
 	<iostream>
 	<stdlib.h>
 	<string>
 	"ListCar.cpp"
 	"ListTrip.cpp"
+	"ListCustomer.cpp"
 
 1628485009 c:\users\admin\documents\github\bai12\listcar.cpp
 	"ListCar.h"
@@ -75,8 +76,18 @@
 	"Trip.h"
 	"Ticket.cpp"
 
-1628500654 c:\users\admin\documents\github\bai12\customer.h
+1628503857 c:\users\admin\documents\github\bai12\customer.h
 
 1628500992 c:\users\admin\documents\github\bai12\ticket.cpp
 	"Ticket.h"
+
+1628504790 c:\users\admin\documents\github\bai12\listcustomer.cpp
+	"ListCustomer.h"
+	"Customer.cpp"
+
+1628504071 c:\users\admin\documents\github\bai12\listcustomer.h
+	"Customer.h"
+
+1628504477 c:\users\admin\documents\github\bai12\customer.cpp
+	"Customer.h"
 

@@ -9,20 +9,18 @@ public:
 	~ListCustomer();
 	void insertNewNode(Customer Customer);
 	void preOrderPrint();
-	void inOrderPrint();
-	void postOrderPrint();
 	Customer* search(Customer customer);
 	Customer* searchById(int);
+	void importFromFile();
+	void exportToFile();
 
 private:
 	Customer *rootPtr;
 	bool isEmpty();
 
 	void insertNewNodeUtility(Customer**, Customer);
-	void preOrderPrintUtility(Customer*, Customer);
-	void inOrderPrintUtility(Customer*);
-	void postOrderPrintUtility(Customer*);
-	Customer* searchUtility(Customer*, Customer);
+	void preOrderPrintUtility(Customer*);
+	Customer* searchUtilityById(Customer*, int);
 };
 
 #endif // LISTCUSTOMER_H_INCLUDED
